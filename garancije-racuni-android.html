@@ -17,7 +17,7 @@
         
         <section>
             <h3>1. Uvod</h3>
-            <p>Ova Politika privatnosti opisuje kako aplikacija "Garancije i Računi" prikuplja, koristi i štiti vaše lične podatke. Vaša privatnost nam je važna i obavezujemo se da čuvamo sigurnost vaših podataka.</p>
+            <p>Ova Politika privatnosti opisuje kako aplikacija "Garancije i Računi" funkcioniše i šta se dešava sa vašim podacima. <strong>Važno: Aplikacija NE prikuplja niti šalje vaše podatke na bilo koje servere koje mi kontrolišemo.</strong> Svi vaši podaci ostaju na vašem uređaju i opciono u vašem privatnom Google Drive-u.</p>
         </section>
         
         <section>
@@ -32,17 +32,16 @@
         </section>
         
         <section>
-            <h3>3. Podaci Koje Prikupljamo</h3>
+            <h3>3. Podaci i Kako Ih Koristimo</h3>
             
-            <h4>3.1. Lični Podaci (Google Sign-In)</h4>
-            <p>Kada se prijavljujete preko Google naloga, prikupljamo:</p>
+            <h4>3.1. Google Sign-In (Opciono)</h4>
+            <p>Kada se prijavljujete preko Google naloga:</p>
             <ul>
-                <li>Google korisnički ID (za autentifikaciju)</li>
-                <li>Email adresu</li>
-                <li>Ime i prezime</li>
-                <li>Profilnu fotografiju (ako je dostupna)</li>
+                <li>Google procesuira autentifikaciju direktno (mi ne vidimo vašu lozinku)</li>
+                <li>Dobijamo OAuth token koji dozvoljava aplikaciji pristup <strong>SAMO vašem privatnom Google Drive-u</strong></li>
+                <li>Ne šaljemo ove podatke na naše servere - <strong>nemamo backend</strong></li>
             </ul>
-            <p><strong>Svrha:</strong> Ovi podaci se koriste isključivo za autentifikaciju korisnika i pristup Google Drive-u za sinhronizaciju podataka.</p>
+            <p><strong>Svrha:</strong> Isključivo za omogućavanje sinhronizacije između vaših uređaja preko vašeg privatnog Google Drive-a. <strong>Vi možete koristiti aplikaciju bez prijavljivanja</strong> - sve će raditi lokalno.</p>
             
             <h4>3.2. Podaci o Računima i Karticama</h4>
             <p>Aplikacija čuva sledeće podatke koje vi unosite:</p>
@@ -67,14 +66,14 @@
         
         <section>
             <h3>4. Kako Koristimo Vaše Podatke</h3>
-            <p>Vaši podaci se koriste za:</p>
+            <p>VašiGde Se Čuvaju Vaši Podaci</h3>
+            <p><strong>100% lokalno ili u vašem privatnom cloud-u:</strong></p>
             <ul>
-                <li>Omogućavanje osnovnih funkcija aplikacije (prikaz računa, kartica, kataloga)</li>
-                <li>Sinhronizaciju između vaših uređaja preko Google Drive-a</li>
-                <li>Autentifikaciju korisnika preko Google Sign-In</li>
+                <li><strong>Lokalno:</strong> Svi podaci (slike računa, kartice) se čuvaju u šifrovanoj SQLite bazi NA VAŠEM UREĐAJU</li>
+                <li><strong>Vaš Google Drive (opciono):</strong> Ako omogućite sinhronizaciju, aplikacija pravi backup u VAŠI PRIVATNI Google Drive folder</li>
+                <li><strong>MI NE VIDIMO vaše podatke</strong> - nemamo backend server, ne šaljemo ništa sebi</li>
             </ul>
-            <p><strong>MI NE PRODAJEMO niti delimo vaše podatke sa trećim stranama u marketinške svrhe.</strong></p>
-        </section>
+            <p><strong>MI NE PRIKUPLJAMO, NE PRODAJEMO niti delimo vaše podatke sa trećim stranama
         
         <section>
             <h3>5. Google Drive Sinhronizacija</h3>
@@ -88,26 +87,37 @@
         </section>
         
         <section>
-            <h3>6. Deljenje Podataka sa Trećim Stranama</h3>
-            <p>Aplikacija koristi sledeće treće strane:</p>
+            <h3>6. Treće Strane (Servisi Koje Koristimo)</h3>
+            <p><strong>Aplikacija NE šalje vaše podatke trećim stranama.</strong> Međutim, koristimo sledeće servise koji mogu imati pristup određenim informacijama:</p>
             
-            <h4>6.1. Google Services</h4>
+            <h4>6.1. Google Services (Opciono - Samo Ako Se Prijavite)</h4>
             <ul>
-                <li><strong>Google Sign-In</strong> - za autentifikaciju</li>
-                <li><strong>Google Drive API</strong> - za sinhronizaciju</li>
+                <li><strong>Google Sign-In</strong> - Autentifikacija (Google zna da koristite aplikaciju)</li>
+                <li><strong>Google Drive API</strong> - Sinhronizacija u VAŠ PRIVATNI Drive folder</li>
             </ul>
+            <p><strong>Šta Google vidi:</strong> Da koristite aplikaciju "Garancije i Računi" i da pristupate svom Drive-u. Google NE vidi sadržaj vaših računa ili kartica jer su fajlovi u vašem privatnom Drive-u.</p>
+            <p><strong>Šta MI vidimo:</strong> NIŠTA. Nemamo pristup vašem Drive-u.</p>
             <p>Politika privatnosti Google-a: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
             
-            <h4>6.2. Firebase (Google)</h4>
-            <p>Koristimo Firebase za:</p>
+            <h4>6.2. Cloudflare R2 (Javni Katalozi)</h4>
+            <p>Promocije i katalozi se preuzimaju sa javnog Cloudflare R2 CDN-a. Cloudflare može logovati:</p>
             <ul>
-                <li>Analitiku crash reportova (bez ličnih podataka)</li>
+                <li>IP adresu vašeg uređaja</li>
+                <li>Vreme pristupa</li>
+                <li>Koje fajlove ste preuzeli (katalozi su javni)</li>
             </ul>
-            <p>Politika privatnosti Firebase-a: <a href="https://firebase.google.com/support/privacy" target="_blank">https://firebase.google.com/support/privacy</a></p>
-            
-            <h4>6.3. Cloudflare R2 (Katalozi)</h4>
-            <p>Javni katalozi se preuzimaju sa Cloudflare R2 servera. Cloudflare može logovati IP adrese za sigurnosne svrhe.</p>
+            <p><strong>Šta MI vidimo:</strong> NIŠTA. Katalozi su javno dostupni i ne znamo ko ih preuzima.</p>
             <p>Politika privatnosti Cloudflare-a: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">https://www.cloudflare.com/privacypolicy/</a></p>
+            
+            <h4>6.3. Šta NISMO Koristimo</h4>
+            <p>Aplikacija <strong>NE koristi</strong>:</p>
+            <ul>
+                <li>❌ Google Analytics (ne pratimo vas)</li>
+                <li>❌ Firebase Analytics (ne prikupljamo statistike)</li>
+                <li>❌ Crash reporting servise (ne šaljemo crash logove)</li>
+                <li>❌ Advertising servise (bez reklama)</li>
+                <li>❌ Backend servere (nemamo ih)</li>
+            </ul>
         </section>
         
         <section>
@@ -173,32 +183,35 @@
             <p class="last-updated">Last Updated: March 10, 2026</p>
             
             <h4>1. Introduction</h4>
-            <p>This Privacy Policy describes how the "Warranties and Receipts" app collects, uses, and protects your personal data. Your privacy is important to us and we are committed to protecting your data security.</p>
+            <p><strong>Important: This app does NOT collect or send your data to any servers we control.</strong> All your data stays on your device and optionally in your private Google Drive.</p>
             
-            <h4>2. Data We Collect</h4>
+            <h4>2. What We DON'T Collect</h4>
             <ul>
-                <li><strong>Google Account Information:</strong> User ID, email, name, profile photo (for authentication)</li>
-                <li><strong>Receipt and Card Data:</strong> Photos and metadata you add (stored locally and optionally on your Google Drive)</li>
-                <li><strong>Camera/Gallery Access:</strong> For scanning receipts and loyalty cards (images stay on your device)</li>
+                <li>❌ We have NO backend servers</li>
+                <li>❌ We DO NOT see your receipts, cards, or any personal data</li>
+                <li>❌ We DO NOT track your usage</li>
+                <li>❌ We DO NOT use analytics or crash reporting</li>
+                <li>❌ We DO NOT sell or share your data</li>
             </ul>
             
-            <h4>3. How We Use Your Data</h4>
+            <h4>3. How It Works</h4>
             <ul>
-                <li>Enable app functionality (display receipts, cards, catalogs)</li>
-                <li>Sync data across your devices via Google Drive</li>
-                <li>User authentication via Google Sign-In</li>
+                <li><strong>Google Sign-In (Optional):</strong> Only used to access YOUR private Google Drive for syncing. We don't see your data.</li>
+                <li><strong>Local Storage:</strong> All data (photos, cards) stored in encrypted database ON YOUR DEVICE</li>
+                <li><strong>Your Google Drive (Optional):</strong> Backup to YOUR PRIVATE Drive folder. We have no access.</li>
+                <li><strong>Public Catalogs:</strong> Downloaded from public Cloudflare CDN. We don't track who downloads them.</li>
             </ul>
-            <p><strong>WE DO NOT SELL your data to third parties for marketing purposes.</strong></p>
             
             <h4>4. Third-Party Services</h4>
             <ul>
-                <li><strong>Google Services:</strong> Sign-In, Drive API (<a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a>)</li>
-                <li><strong>Firebase:</strong> Crash analytics (<a href="https://firebase.google.com/support/privacy" target="_blank">Privacy Policy</a>)</li>
+                <li><strong>Google Services (Optional):</strong> Sign-In, Drive API (<a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a>)</li>
                 <li><strong>Cloudflare R2:</strong> Public catalog hosting (<a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Privacy Policy</a>)</li>
             </ul>
+            <p><strong>What Google sees:</strong> That you use the app and access your Drive. Google does NOT see content of your receipts.</p>
+            <p><strong>What WE see:</strong> NOTHING. Zero data collection.</p>
             
             <h4>5. Your Rights (GDPR)</h4>
-            <p>EU users have rights to access, correct, delete, and export their data. Contact us at: <a href="mailto:mammarch2011@gmail.com">mammarch2011@gmail.com</a></p>
+            <p>Since we don't collect data, there's nothing for us to delete. You own all your data (local + your Drive).</p>
             
             <h4>6. Contact</h4>
             <p>Email: <a href="mailto:mammarch2011@gmail.com">mammarch2011@gmail.com</a></p>
